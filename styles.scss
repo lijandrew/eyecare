@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto:wght@300;400;500&display=swap');
-
 $dark: #005B60;
 $light: #F3F9FA;
 
@@ -9,7 +8,8 @@ $light: #F3F9FA;
   box-sizing: border-box;
 }
 
-html,body {
+body,
+html {
   width: 100%;
   height: 100%;
   min-width: 100%;
@@ -25,6 +25,7 @@ body {
 h1,h2 {
   font-family: "Playfair Display", serif;
   font-weight: lighter;
+  color: $dark;
   max-width: 80%;
   line-height: 150%;
 }
@@ -59,17 +60,20 @@ a {
 
 .dark-btn,.light-btn {
   width: fit-content;
+  display: inline-block;
   padding: 15px 25px;
   margin-bottom: 15px;
   border-radius: 30px;
   font-family: "Roboto", sans-serif;
   font-size: 18px;
 }
+
 .dark-btn {
   margin-top: 50px;
   background: $dark;
   color: white;
 }
+
 .light-btn {
   border: 1px solid $dark;
   color: $dark;
@@ -92,6 +96,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   #burger {
     cursor: pointer;
     #bar1,#bar2 {
@@ -106,23 +111,69 @@ header {
       transform: translateY(200%);
     }
   }
+  nav {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    background: $dark;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(100%);
+    transition: opacity 300ms ease-out;
+    a {
+      overflow: hidden;
+      display: inline-block !important;
+      span {
+        display: inline-block;
+        color: white;
+        font-size: 70px;
+        text-align: center;
+        font-weight: lighter;
+        font-family: "Roboto", serif;
+        transform: translateY(100%);
+      }
+      &:nth-child(1) span {
+        transition: transform 300ms ease-out 100ms;
+      }
+      &:nth-child(2) span {
+        transition: transform 300ms ease-out 200ms;
+      }
+    }
+    a:nth-child(1) {
+      margin-bottom: 100px;
+    }
+  }
+  nav.mobile-nav-open {
+    transform: translateX(0);
+    opacity: 1;
+    span {
+      transform: translateY(0);
+    }
+  }
 }
 
 main {
   display: flex;
   flex-direction: column;
   height: 100%;
+
   section {
     flex-grow: 1;
     position: relative;
     display: flex;
-    // justify-content: center;
     align-items: center;
     padding: 100px 0;
   }
+
   section:nth-child(1) {
-    padding-top: calc(max(10vh, 70px) + 50px);
+    padding-top: calc(max(10vh, 70px) + 100px);
   }
+
   section:nth-child(odd) {
     background: $light;
     // FIXME: diagonal extends page width undesirably. overflow hidden not working.
@@ -139,32 +190,43 @@ main {
     }
     */
   }
+
   .emphasis {
     width: 20px;
     height: 5px;
     background: $dark;
   }
+
   .section-content {
     padding-left: min(8vw, 50px);
   }
 }
 
 section#home {
+  p {
+    margin-top: 25px;
+    width: 80%;
+  }
+
   #page-nav {
     margin-top: 50px;
     position: relative;
-    height: 100%;
     #page-nav-line {
       position: absolute;
-      height: 100%;
-      width: 2px;
+      height: 260px;
+      width: 1px;
+      opacity: 0.3;
       background: black;
     }
     a {
       margin-left: 10px;
       margin-bottom: 20px;
-      font-size: 18px;
+      font-size: 16px;
     }
+  }
+
+  img {
+    display: none;
   }
 }
 
@@ -173,20 +235,116 @@ section#about {
     margin-top: 50px;
     width: 90%;
     max-width: 500px;
+
     span:nth-child(1) {
       display: none;
     }
+
     span:nth-child(2) {
       display: none;
     }
+
     span.shown {
       display: inline;
     }
   }
+
   #read-more {
     margin-top: 50px;
     color: $dark;
     font-weight: bolder;
     font-family: "Roboto", sans-serif;
+
+    img {
+      transition: transform 300ms ease-out;
+    }
+
+    span {
+      margin-left: 10px;
+    }
+  }
+
+  #read-more.shown img {
+    transform: rotate(180deg);
+  }
+
+  .section-content > img {
+    width: 100%;
+    max-width: 500px;
+    margin: 50px auto 0;
+  }
+}
+section#services {
+  h2::before {
+    content: 'Comprehensive ophthalmology services';
+  }
+}
+
+
+@media only screen and (min-width: 1200px) {
+  h1 {
+    font-size: 55px;
+  }
+  h1,h2 {
+    max-width: none;
+  }
+  p, .dark-btn,.light-btn {
+    font-size: 20px;
+  }
+  main {
+    section {
+      justify-content: center;
+    }
+    .section-content {
+      width: 80%;
+      padding-left: 0;
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-column-gap: 20px;
+      align-items: center;
+      justify-items: center;
+    }
+  }
+
+  section#home {
+    h1 {
+      max-width: none;
+      width: 100%;
+      // white-space: nowrap;
+    }
+    p {
+      max-width: 650px;
+    }
+    .cta {
+      grid-column: 1 / 7;
+    }
+    img {
+      display: block;
+      width: 100%;
+      grid-column: 8 / 13;
+    }
+    #page-nav {
+      z-index: 98;
+      position: fixed;
+      top: 50%;
+      right: 10px;
+      transform: translateY(-50%);
+      a {
+        text-align: right;
+        margin-left: 0;
+        margin-right: 10px;
+      }
+      #page-nav-line {
+        right: 0;
+      }
+    }
+  }
+  section#services {
+    span:nth-child(1),span:nth-child(2) {
+      display: none;
+    }
+    h2::before {
+      content: 'We provide comprehensive ophthalmology services';
+    }
   }
 }
