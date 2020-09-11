@@ -18,37 +18,41 @@ body {
   opacity: 0;
 }
 
-img {
-  user-select: none;
-}
-
-h1, h2 {
+.large {
   font-family: "Playfair Display", serif;
   font-weight: lighter;
   color: #005B60;
   line-height: 150%;
-}
-
-h1 {
   font-size: 42px;
 }
 
-h2 {
+.medium {
+  font-family: "Playfair Display", serif;
+  font-weight: lighter;
+  color: #005B60;
+  line-height: 150%;
   font-size: 32px;
 }
 
-p {
+.small {
   font-family: "Roboto", sans-serif;
   font-size: 18px;
   font-weight: normal;
-  line-height: 175%;
+  line-height: 150%;
+}
+
+.tiny {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+}
+
+img {
+  user-select: none;
 }
 
 a {
-  display: block;
   color: #005B60;
   text-decoration: none;
-  font-family: "Roboto", sans-serif;
 }
 
 .active {
@@ -65,8 +69,6 @@ a {
   padding: 15px 25px;
   margin-bottom: 15px;
   border-radius: 30px;
-  font-family: "Roboto", sans-serif;
-  font-size: 18px;
 }
 
 .dark-btn {
@@ -82,9 +84,9 @@ a {
 
 .logo {
   color: white;
-  font-family: "Playfair Display", serif;
-  font-size: 18px;
   max-width: 50%;
+  font-size: 20px;
+  font-weight: lighter;
 }
 
 header {
@@ -94,6 +96,13 @@ header {
   height: max(10vh, 70px);
   padding: 0 25px;
   background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+header .header-content {
+  width: 90%;
+  max-width: 2000px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -199,6 +208,7 @@ main .emphasis {
 main .section-content {
   padding-left: min(8vw, 50px);
   width: 90%;
+  max-width: 2000px;
 }
 main .cta {
   width: 100%;
@@ -221,12 +231,13 @@ section#home #page-nav #page-nav-line {
   background: black;
 }
 section#home #page-nav a {
+  display: block;
   margin-left: 10px;
   margin-bottom: 20px;
-  font-size: 16px;
 }
 section#home img {
-  display: none;
+  margin-top: 50px;
+  width: min(90%, 500px);
 }
 
 section#about p {
@@ -272,19 +283,16 @@ section#services h2::before {
 }
 
 @media only screen and (min-width: 1025px) {
-  h1 {
-    font-size: 55px;
-  }
-
-  p, .dark-btn, .light-btn {
+  .small {
     font-size: 20px;
   }
 
-  header {
-    background: none;
+  .tiny {
+    font-size: 18px;
   }
+
   header .logo {
-    color: black;
+    font-size: 25px;
   }
   header nav#mobile-nav, header #burger {
     display: none;
@@ -293,9 +301,11 @@ section#services h2::before {
     display: block;
   }
   header nav#desktop-nav a {
+    color: white;
     display: inline-block;
     margin-left: 20px;
   }
+
   main section {
     justify-content: center;
   }
@@ -313,10 +323,43 @@ section#services h2::before {
     width: 100%;
   }
   section#home p {
-    max-width: 650px;
+    max-width: 460;
   }
   section#home .cta {
     grid-column: 1/7;
+  }
+  section#home img {
+    display: block;
+    width: 100%;
+    grid-column: 7/13;
+  }
+
+  section#about .cta {
+    grid-column: 1/6;
+  }
+  section#about .cta p {
+    max-width: none;
+    width: 100%;
+  }
+  section#about #doctor {
+    display: block;
+    grid-column: 7/13;
+  }
+
+  section#services span:nth-child(1), section#services span:nth-child(2) {
+    display: none;
+  }
+  section#services h2::before {
+    content: "We provide comprehensive ophthalmology services";
+  }
+}
+@media only screen and (min-width: 1450px) {
+  section#home .cta {
+    grid-column: 1/6;
+  }
+  section#home img {
+    align-self: center;
+    grid-column: 6/12;
   }
   section#home #page-nav {
     z-index: 98;
@@ -333,41 +376,19 @@ section#services h2::before {
   section#home #page-nav #page-nav-line {
     right: 0;
   }
-  section#home img {
-    display: block;
-    width: 100%;
-    grid-column: 7/11;
-  }
 
-  section#about .cta {
-    grid-column: 1/6;
-  }
-  section#about .cta p {
-    max-width: none;
-    width: 100%;
-  }
   section#about #doctor {
-    display: block;
-    grid-column: 7/11;
-  }
-
-  section#services span:nth-child(1), section#services span:nth-child(2) {
-    display: none;
-  }
-  section#services h2::before {
-    content: "We provide comprehensive ophthalmology services";
+    grid-column: 8/12;
   }
 }
-@media only screen and (min-width: 1370px) {
-  section#home .cta {
-    grid-column: 1/7;
-  }
+@media only screen and (min-width: 1500px) {
   section#home img {
-    grid-column: 8/12;
+    grid-column: 6/12;
   }
-
-  section#about #doctor {
-    grid-column: 8/12;
+}
+@media only screen and (min-width: 1700px) {
+  .large {
+    font-size: 55px;
   }
 }
 
