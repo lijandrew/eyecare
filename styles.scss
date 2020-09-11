@@ -22,11 +22,14 @@ body {
   opacity: 0;
 }
 
+img {
+  user-select: none;
+}
+
 h1,h2 {
   font-family: "Playfair Display", serif;
   font-weight: lighter;
   color: $dark;
-  max-width: 80%;
   line-height: 150%;
 }
 
@@ -59,6 +62,8 @@ a {
 }
 
 .dark-btn,.light-btn {
+  user-select: none;
+  cursor: pointer;
   width: fit-content;
   display: inline-block;
   padding: 15px 25px;
@@ -96,7 +101,9 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
+  nav#desktop-nav {
+    display: none;
+  }
   #burger {
     cursor: pointer;
     #bar1,#bar2 {
@@ -111,7 +118,7 @@ header {
       transform: translateY(200%);
     }
   }
-  nav {
+  nav#mobile-nav {
     position: fixed;
     width: 100%;
     height: 100%;
@@ -164,6 +171,7 @@ main {
 
   section {
     flex-grow: 1;
+    width: 100%;
     position: relative;
     display: flex;
     align-items: center;
@@ -199,13 +207,19 @@ main {
 
   .section-content {
     padding-left: min(8vw, 50px);
+    width: 90%;
+  }
+
+  .cta {
+    width: 100%;
   }
 }
 
 section#home {
   p {
     margin-top: 25px;
-    width: 80%;
+    width: 90%;
+    max-width: 460px;
   }
 
   #page-nav {
@@ -249,13 +263,17 @@ section#about {
     }
   }
 
+  #doctor {
+    display: none;
+  }
+
   #read-more {
     margin-top: 50px;
     color: $dark;
     font-weight: bolder;
     font-family: "Roboto", sans-serif;
 
-    img {
+    #arrow {
       transition: transform 300ms ease-out;
     }
 
@@ -264,7 +282,7 @@ section#about {
     }
   }
 
-  #read-more.shown img {
+  #read-more.shown #arrow {
     transform: rotate(180deg);
   }
 
@@ -281,22 +299,37 @@ section#services {
 }
 
 
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 1025px) {
   h1 {
     font-size: 55px;
   }
-  h1,h2 {
-    max-width: none;
-  }
   p, .dark-btn,.light-btn {
     font-size: 20px;
+  }
+  header {
+    background: none;
+    .logo {
+      color: black;
+    }
+    nav#mobile-nav,#burger {
+      display: none;
+    }
+    nav#desktop-nav {
+      display: block;
+      a {
+        display: inline-block;
+        margin-left: 20px;
+      }
+      a:nth-child(2) {
+        // margin-right: 50px;
+      }
+    }
   }
   main {
     section {
       justify-content: center;
     }
     .section-content {
-      width: 80%;
       padding-left: 0;
       display: grid;
       grid-template-columns: repeat(12, 1fr);
@@ -310,18 +343,12 @@ section#services {
     h1 {
       max-width: none;
       width: 100%;
-      // white-space: nowrap;
     }
     p {
       max-width: 650px;
     }
     .cta {
       grid-column: 1 / 7;
-    }
-    img {
-      display: block;
-      width: 100%;
-      grid-column: 8 / 13;
     }
     #page-nav {
       z-index: 98;
@@ -338,6 +365,24 @@ section#services {
         right: 0;
       }
     }
+    img {
+      display: block;
+      width: 100%;
+      grid-column: 7 / 11;
+    }
+  }
+  section#about {
+    .cta {
+      grid-column: 1 / 6;
+      p {
+        max-width: none;
+        width: 100%;
+      }
+    }
+    #doctor {
+      display: block;
+      grid-column: 7 / 11;
+    }
   }
   section#services {
     span:nth-child(1),span:nth-child(2) {
@@ -345,6 +390,22 @@ section#services {
     }
     h2::before {
       content: 'We provide comprehensive ophthalmology services';
+    }
+  }
+}
+
+@media only screen and (min-width: 1370px) {
+  section#home {
+    .cta {
+      grid-column: 1 / 7;
+    }
+    img {
+      grid-column: 8 / 12;
+    }
+  }
+  section#about {
+    #doctor {
+      grid-column: 8 / 12;
     }
   }
 }
