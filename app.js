@@ -1,33 +1,17 @@
 let body = document.querySelector("body");
 
-function setupMobileNav() {
-  let burger = document.querySelector("#burger");
-  let nav = document.querySelector("nav");
-  burger.addEventListener("click", () => {
-    nav.classList.toggle("mobile-nav-open");
-  })
-}
-
 function setupHome() {
-  let readMore = document.querySelector("#read-more");
-  let readMoreSpan = readMore.querySelector("span");
-  let span1 = document.querySelector("section#about p span:nth-child(1)");
-  let span2 = document.querySelector("section#about p span:nth-child(2)");
-  readMore.addEventListener("click", () => {
-    span1.classList.toggle("shown");
-    span2.classList.toggle("shown");
-    readMore.classList.toggle("shown");
-    if (span2.classList.contains("shown")) {
-      readMoreSpan.textContent = "read less";
-    } else {
-      readMoreSpan.textContent = "read more";
-    }
-  });
+  for (let insuranceTitle of Array.from(document.querySelectorAll(".insurance-list-entry .title"))) {
+    let insuranceListEntry = insuranceTitle.parentElement;
+    insuranceTitle.addEventListener("click", () => {
+      insuranceListEntry.classList.toggle("open");
+    });
+  }
 }
 
 function main() {
   window.onload = () => {
-    setupMobileNav();
+    // setupMobileNav();
     setupHome();
     body.style.opacity = 1;
   };
