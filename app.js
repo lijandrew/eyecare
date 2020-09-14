@@ -1,7 +1,14 @@
 let body = document.querySelector("body");
+let about = document.querySelector("section#about");
 
 function setupHome() {
-  for (let insuranceTitle of Array.from(document.querySelectorAll(".insurance-list-entry .title"))) {
+  let aboutTextContent = about.querySelector(".text-content");
+  let readMore = about.querySelector("section#about .light-btn");
+  readMore.addEventListener("click", () => {
+    aboutTextContent.classList.toggle("open");
+  });
+
+  for (let insuranceTitle of Array.from(document.querySelectorAll(".insurance-list-entry > .small"))) {
     let insuranceListEntry = insuranceTitle.parentElement;
     insuranceTitle.addEventListener("click", () => {
       insuranceListEntry.classList.toggle("open");

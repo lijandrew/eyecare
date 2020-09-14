@@ -46,6 +46,14 @@ body {
   font-size: 16px;
 }
 
+.title::before {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 5px;
+  background: #005B60;
+}
+
 img {
   user-select: none;
 }
@@ -130,12 +138,6 @@ header nav {
   display: none;
 }
 
-.emphasis {
-  background: #005B60;
-  width: 20px;
-  height: 5px;
-}
-
 main {
   display: flex;
   flex-direction: column;
@@ -189,7 +191,23 @@ section#home aside {
 }
 
 section#about .btn-group .light-btn img {
-  margin-left: 10px;
+  margin-right: 10px;
+  transition: transform 200ms ease-out;
+}
+section#about .btn-group .light-btn::after {
+  content: "Show more";
+}
+section#about .blurb span {
+  display: none;
+}
+section#about .text-content.open .btn-group .light-btn::after {
+  content: "Show less";
+}
+section#about .text-content.open .blurb span {
+  display: inline;
+}
+section#about .text-content.open .btn-group .light-btn img {
+  transform: rotate(180deg);
 }
 
 section#services .blurb .small {
@@ -204,44 +222,51 @@ section#services .blurb .small:nth-child(2) {
 }
 
 section#insurance .insurance-list {
-  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-top: 25px;
 }
-section#insurance .insurance-list-entry .title {
+section#insurance .insurance-list-entry > .small {
   display: flex;
   align-items: center;
 }
-section#insurance .insurance-list-entry .title img {
-  margin-left: 10px;
+section#insurance .insurance-list-entry > .small img {
+  margin-right: 10px;
   transition: transform 200ms ease-out;
 }
 section#insurance .insurance-list-entry .insurance-list-wrapper {
   margin-top: 10px;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 }
 section#insurance .insurance-list-entry .insurance-list-wrapper::before {
   content: "";
   display: block;
-  height: 0px;
+  height: 0;
+  transform: scaleY(0);
+  transform-origin: top;
   width: 1px;
   background: black;
   opacity: 0.5;
   margin-right: 10px;
-  transition: height 200ms ease-out;
+  transition: transform 300ms ease-in-out 100ms;
 }
 section#insurance .insurance-list-entry .insurance-list-wrapper ul {
   overflow: hidden;
   height: 0;
   transition: height 200ms ease-out;
 }
-section#insurance .insurance-list-entry.open .title img {
+section#insurance .insurance-list-entry.open > .small img {
   transform: rotate(180deg);
 }
 section#insurance .insurance-list-entry.open .insurance-list-wrapper::before {
   height: 280px;
+  transform: scaleY(1);
 }
 section#insurance .insurance-list-entry.open .insurance-list-wrapper ul {
   height: 280px;
+}
+section#insurance .insurance-list.optical .insurance-list-entry.open .insurance-list-wrapper::before, section#insurance .insurance-list.optical .insurance-list-entry.open .insurance-list-wrapper ul {
+  height: 175px;
 }
 
 /*# sourceMappingURL=styles.css.map */

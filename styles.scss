@@ -50,6 +50,14 @@ body {
   font-size: 16px;
 }
 
+.title::before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 5px;
+  background: $dark;
+}
+
 img {
   user-select: none;
 }
@@ -136,12 +144,6 @@ header {
   }
 }
 
-.emphasis {
-  background: $dark;
-  width: 20px;
-  height: 5px;
-}
-
 main {
   display: flex;
   flex-direction: column;
@@ -198,7 +200,25 @@ section#home {
 
 section#about {
   .btn-group .light-btn img {
-    margin-left: 10px;
+    margin-right: 10px;
+    transition: transform 200ms ease-out;
+  }
+  .btn-group .light-btn::after {
+    content: "Show more";
+  }
+  .blurb span {
+    display: none;
+  }
+  .text-content.open {
+    .btn-group .light-btn::after {
+      content: "Show less";
+    }
+    .blurb span {
+      display: inline;
+    }
+    .btn-group .light-btn img {
+      transform: rotate(180deg);
+    }
   }
 }
 
@@ -217,30 +237,33 @@ section#services {
 
 section#insurance {
   .insurance-list {
-    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-top: 25px;
   }
   .insurance-list-entry {
-    .title {
+    & > .small {
       display: flex;
       align-items: center;
       img {
-        margin-left: 10px;
+        margin-right: 10px;
         transition: transform 200ms ease-out;
       }
     }
     .insurance-list-wrapper {
       margin-top: 10px;
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       &::before {
         content: '';
         display: block;
-        height: 0px;//280
+        height: 0;
+        transform: scaleY(0);
+        transform-origin: top;
         width: 1px;
         background: black;
         opacity: 0.5;
         margin-right: 10px;
-        transition: height 200ms ease-out;
+        transition: transform 300ms ease-in-out 100ms;
       }
       ul {
         overflow: hidden;
@@ -250,15 +273,23 @@ section#insurance {
     }
   }
   .insurance-list-entry.open {
-    .title img {
+    & > .small img {
       transform: rotate(180deg);
     }
     .insurance-list-wrapper {
       &::before {
         height: 280px;
+        transform: scaleY(1);
       }
       ul {
         height: 280px;
+      }
+    }
+  }
+  .insurance-list.optical {
+    .insurance-list-entry.open .insurance-list-wrapper {
+      &::before,ul {
+        height: 175px;
       }
     }
   }
