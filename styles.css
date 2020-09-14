@@ -146,6 +146,7 @@ main {
 main section {
   flex-grow: 1;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 80px 0;
@@ -191,7 +192,7 @@ section#home aside {
 }
 
 section#about .btn-group .light-btn img {
-  margin-right: 10px;
+  margin-right: 20px;
   transition: transform 200ms ease-out;
 }
 section#about .btn-group .light-btn::after {
@@ -215,22 +216,21 @@ section#services .blurb .small {
   align-items: center;
 }
 section#services .blurb .small img {
-  margin-right: 10px;
+  margin-right: 20px;
 }
 section#services .blurb .small:nth-child(2) {
   margin: 20px 0;
 }
 
-section#insurance .insurance-list {
+section#insurance .insurance-list:nth-child(2) {
   margin-bottom: 50px;
-  margin-top: 25px;
 }
 section#insurance .insurance-list-entry > .small {
   display: flex;
   align-items: center;
 }
 section#insurance .insurance-list-entry > .small img {
-  margin-right: 10px;
+  margin-right: 20px;
   transition: transform 200ms ease-out;
 }
 section#insurance .insurance-list-entry .insurance-list-wrapper {
@@ -267,6 +267,23 @@ section#insurance .insurance-list-entry.open .insurance-list-wrapper ul {
 }
 section#insurance .insurance-list.optical .insurance-list-entry.open .insurance-list-wrapper::before, section#insurance .insurance-list.optical .insurance-list-entry.open .insurance-list-wrapper ul {
   height: 175px;
+}
+
+section#directions .content:nth-child(1) {
+  margin-bottom: 80px;
+}
+section#directions .content:nth-child(1) .img-content > div {
+  display: flex;
+  align-items: center;
+}
+section#directions .content:nth-child(1) .img-content > div img {
+  margin-right: 20px;
+}
+section#directions .content:nth-child(1) .img-content > div:nth-child(2) {
+  margin: 25px 0;
+}
+section#directions .content:nth-child(1) img {
+  width: 30px;
 }
 
 /*# sourceMappingURL=styles.css.map */
