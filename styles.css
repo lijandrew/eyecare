@@ -15,15 +15,7 @@ html {
 }
 
 body {
-  display: flex;
-  flex-direction: column;
   opacity: 0;
-}
-body main {
-  flex-grow: 1;
-}
-body main section {
-  flex-grow: 1;
 }
 
 .large {
@@ -167,7 +159,6 @@ header nav {
 header nav a.small {
   font-weight: lighter;
   color: white;
-  font-size: min(10vw, 60px);
   display: block;
   text-align: left;
   margin-left: 10%;
@@ -264,9 +255,6 @@ aside .aside-links a {
   font-weight: normal;
 }
 
-section#home {
-  min-height: 95vh;
-}
 section#home .text-content {
   max-width: 490px;
 }
