@@ -93,7 +93,6 @@ li {
 .dark-btn,.light-btn {
   user-select: none;
   cursor: pointer;
-  // display: inline-block;
   padding: 15px 25px;
   margin-bottom: 15px;
   font-family: "Roboto", sans-serif;
@@ -157,7 +156,7 @@ header {
       background: white;
     }
   }
-  .quick {
+  .info {
     display: none;
   }
   nav {
@@ -176,28 +175,29 @@ header {
       color: white;
       font-size: min(10vw, 60px);
       display: block;
-      text-align: center;
+      text-align: left;
+      margin-left: 10%;
       opacity: 0;
     }
   }
   nav.open {
     display: flex;
     a.small {
-      animation: fadeIn 300ms ease-out forwards;
+      animation: fadeIn 500ms ease-out forwards;
       &:nth-child(1) {
         animation-delay: 0;
       }
       &:nth-child(2) {
-        animation-delay: 100ms;
+        animation-delay: 150ms;
       }
       &:nth-child(3) {
-        animation-delay: 200ms;
-      }
-      &:nth-child(4) {
         animation-delay: 300ms;
       }
+      &:nth-child(4) {
+        animation-delay: 450ms;
+      }
       &:nth-child(5) {
-        animation-delay: 400ms;
+        animation-delay: 600ms;
       }
     }
   }
@@ -219,14 +219,15 @@ main {
     max-width: 1200px;
   }
   section {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 80px 0;
+    padding: 120px 0;
   }
   section:nth-child(1) {
-    padding-top: 160px;
+    padding-top: 200px;
   }
   .text-content {
     .blurb {
@@ -237,14 +238,14 @@ main {
     }
   }
   .view-content {
-    margin-top: 50px;
+    margin-top: 100px;
     width: 100%;
+    max-width: 500px;
     img {
       width: 100%;
-      max-width: 500px;
     }
   }
-  section:nth-child(odd) {
+  section:nth-child(even) {
     background: $light;
   }
 }
@@ -255,39 +256,47 @@ aside {
   &::before {
     content: '';
     display: block;
-    height: 330px;
+    height: 250px;
     width: 1px;
     background: black;
-    opacity: 0.5;
     margin-right: 10px;
   }
-  a {
-    display: block;
-    color: $dark;
-    margin: 20px 0;
-    font-size: 18px;
+  .aside-links {
+    height: 250px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    a {
+      display: block;
+      color: $dark;
+      font-weight: normal;
+    }
   }
 }
 
 section#home {
-  .blurb {
-    max-width: 450px;
+  min-height: 95vh;
+  .text-content {
+    max-width: 490px;
   }
   aside {
     margin-top: 50px;
   }
+  .learnmore {
+    display: none;
+  }
 }
 
 section#about {
+  .text-content {
+    max-width: 540px;
+  }
   .btn-group .light-btn img {
     margin-right: 20px;
     transition: transform 200ms ease-out;
   }
   .btn-group .light-btn::after {
     content: "Show more";
-  }
-  .blurb {
-    max-width: 742px;
   }
   .blurb span {
     display: none;
@@ -306,6 +315,9 @@ section#about {
 }
 
 section#services {
+  .text-content {
+    max-width: 520px;
+  }
   .blurb .small {
     display: flex;
     align-items: center;
@@ -329,6 +341,7 @@ section#insurance {
     & > .small {
       display: flex;
       align-items: center;
+      cursor: pointer;
       img {
         margin-right: 20px;
         transition: transform 200ms ease-out;
@@ -346,14 +359,19 @@ section#insurance {
         transform-origin: top;
         width: 1px;
         background: black;
-        opacity: 0.5;
         margin-right: 10px;
         transition: transform 300ms ease-in-out 100ms;
       }
       ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
         overflow: hidden;
         height: 0;
         transition: height 200ms ease-out;
+        & > .small {
+          font-weight: lighter;
+        }
       }
     }
   }
@@ -363,11 +381,12 @@ section#insurance {
     }
     .insurance-list-wrapper {
       &::before {
-        height: 280px;
+        height: 250px;
         transform: scaleY(1);
       }
       ul {
-        height: 280px;
+        height: 250px;
+        margin-bottom: 20px;
       }
     }
   }
@@ -381,24 +400,26 @@ section#insurance {
 }
 
 section#frames {
-  .blurb {
+  .text-content {
     max-width: 485px;
   }
 }
 
 section#contactlenses {
-  .blurb {
+  .text-content {
     max-width: 515px;
   }
 }
 
 section#orthok {
-  .blurb {
-    max-width: 550px;
-
+  .text-content {
+    max-width: 460px;
   }
 }
 section#directions {
+  .content {
+    max-width: 1000px;
+  }
   .content:nth-child(1) {
     margin-bottom: 80px;
     .view-content {
@@ -419,6 +440,14 @@ section#directions {
     }
   }
 }
+section#end {
+  .content {
+    max-width: 700px;
+    .title {
+      white-space: nowrap;
+    }
+  }
+}
 
 footer {
   background: black;
@@ -428,30 +457,51 @@ footer {
   align-items: center;
   padding: 20px 0;
   .content {
-    max-width: 700px;
+    max-width: 800px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
   }
   .footer-links {
     width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-row-gap: 10px;
     a {
       color: white;
-      padding: 0 10px;
+    }
+  }
+  .footer-info {
+    width: 100%;
+    margin: 40px 0;
+    .tiny {
+      color: white;
+      display: flex;
+      img {
+        margin-right: 20px;
+      }
+    }
+    .tiny:nth-child(2) {
+      margin: 20px 0;
     }
   }
   .logo {
     margin-top: 10px;
-    text-align: center;
   }
 }
 
 
 // Media queries
+
+@media screen and (min-width: 515px) {
+  .home-temp-nav-group {
+    display: flex;
+  }
+  aside {
+    margin-left: 50px;
+  }
+}
 
 @media screen and (max-width: 819px) {
   body.open {
@@ -481,9 +531,121 @@ footer {
   }
 }
 
+@media screen and (min-width: 950px) {
+  footer {
+    .content {
+      width: 100%;
+      align-items: center;
+    }
+    .footer-links {
+      display: flex;
+      justify-content: space-between;
+    }
+    .footer-info {
+      display: flex;
+      justify-content: space-between;
+      .tiny:nth-child(2) {
+        margin: 0 20px;
+      }
+    }
+    .logo {
+      text-align: center;
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .order1 {
+    .text-content {
+      order: 1;
+    }
+    .view-content {
+      order: 2;
+    }
+  }
+  .order2 {
+    .text-content {
+      order: 2;
+    }
+    .view-content {
+      order: 1;
+    }
+  }
+  main {
+    .content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      justify-items: center;
+    }
+    .view-content {
+      margin-top: 0;
+    }
+  }
+
+  section#home {
+    .learnmore {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      color: $dark;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      img {
+        margin-top: 5px;
+      }
+    }
+  }
+
+  section#insurance {
+    .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .insurance-list {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        margin-top: 50px;
+      }
+      .insurance-list:nth-child(2) {
+        margin-bottom: 100px;
+      }
+      .insurance-list.optical {
+        justify-content: center;
+      }
+      .insurance-list-entry {
+        & > .small {
+          cursor: default;
+          pointer-events: none;
+        }
+        .insurance-list-wrapper {
+          &::before {
+            height: 250px;
+            transform: scaleY(1);
+          }
+          ul {
+            height: 250px;
+          }
+        }
+      }
+    }
+  }
+
+  section#end {
+    .view-content {
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
+
 @media screen and (min-width: 1402px) {
   header {
-   .quick {
+   .info {
       display: flex;
       .tiny {
         color: white;
@@ -495,6 +657,30 @@ footer {
       .tiny:nth-child(1) {
         margin-right: 40px;
       }
+    }
+  }
+}
+
+@media screen and (min-width: 1450px) {
+  section {
+    padding-left: 160px !important;
+    padding-right: 160px !important;
+  }
+  main .content {
+    width: 95%;
+  }
+  aside {
+    position: fixed;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    &::before {
+      order: 2;
+      margin-left: 10px;
+      margin-right: 0;
+    }
+    .aside-links {
+      align-items: flex-end;
     }
   }
 }

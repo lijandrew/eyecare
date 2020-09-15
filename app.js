@@ -1,7 +1,14 @@
 let body = document.querySelector("body");
+let nav = document.querySelector("nav");
 let about = document.querySelector("section#about");
 
+
 function setupMobileNav() {
+  /*
+  let tl = gsap.timeline( {paused: true} );
+  tl.set(nav, {display: "flex"});
+  tl.to(nav, {opacity: 1});
+  */
   let burger = document.querySelector(".burger");
   let nav = document.querySelector("nav");
   burger.addEventListener("click", () => {
@@ -15,6 +22,8 @@ function setupMobileNav() {
     });
   }
 }
+
+
 function setupHome() {
   let aboutTextContent = about.querySelector(".text-content");
   let readMore = about.querySelector("section#about .light-btn");
@@ -29,6 +38,7 @@ function setupHome() {
     });
   }
 }
+
 
 function main() {
   window.onload = () => {

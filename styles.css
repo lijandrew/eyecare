@@ -149,7 +149,7 @@ header .burger .line2 {
   height: 2px;
   background: white;
 }
-header .quick {
+header .info {
   display: none;
 }
 header nav {
@@ -169,29 +169,30 @@ header nav a.small {
   color: white;
   font-size: min(10vw, 60px);
   display: block;
-  text-align: center;
+  text-align: left;
+  margin-left: 10%;
   opacity: 0;
 }
 header nav.open {
   display: flex;
 }
 header nav.open a.small {
-  animation: fadeIn 300ms ease-out forwards;
+  animation: fadeIn 500ms ease-out forwards;
 }
 header nav.open a.small:nth-child(1) {
   animation-delay: 0;
 }
 header nav.open a.small:nth-child(2) {
-  animation-delay: 100ms;
+  animation-delay: 150ms;
 }
 header nav.open a.small:nth-child(3) {
-  animation-delay: 200ms;
-}
-header nav.open a.small:nth-child(4) {
   animation-delay: 300ms;
 }
+header nav.open a.small:nth-child(4) {
+  animation-delay: 450ms;
+}
 header nav.open a.small:nth-child(5) {
-  animation-delay: 400ms;
+  animation-delay: 600ms;
 }
 
 @keyframes fadeIn {
@@ -211,14 +212,15 @@ main .content {
   max-width: 1200px;
 }
 main section {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 80px 0;
+  padding: 120px 0;
 }
 main section:nth-child(1) {
-  padding-top: 160px;
+  padding-top: 200px;
 }
 main .text-content .blurb {
   margin-top: 25px;
@@ -227,14 +229,14 @@ main .text-content .btn-group {
   margin-top: 50px;
 }
 main .view-content {
-  margin-top: 50px;
-  width: 100%;
-}
-main .view-content img {
+  margin-top: 100px;
   width: 100%;
   max-width: 500px;
 }
-main section:nth-child(odd) {
+main .view-content img {
+  width: 100%;
+}
+main section:nth-child(even) {
   background: #F3F9FA;
 }
 
@@ -245,35 +247,45 @@ aside {
 aside::before {
   content: "";
   display: block;
-  height: 330px;
+  height: 250px;
   width: 1px;
   background: black;
-  opacity: 0.5;
   margin-right: 10px;
 }
-aside a {
+aside .aside-links {
+  height: 250px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+aside .aside-links a {
   display: block;
   color: #005B60;
-  margin: 20px 0;
-  font-size: 18px;
+  font-weight: normal;
 }
 
-section#home .blurb {
-  max-width: 450px;
+section#home {
+  min-height: 95vh;
+}
+section#home .text-content {
+  max-width: 490px;
 }
 section#home aside {
   margin-top: 50px;
 }
+section#home .learnmore {
+  display: none;
+}
 
+section#about .text-content {
+  max-width: 540px;
+}
 section#about .btn-group .light-btn img {
   margin-right: 20px;
   transition: transform 200ms ease-out;
 }
 section#about .btn-group .light-btn::after {
   content: "Show more";
-}
-section#about .blurb {
-  max-width: 742px;
 }
 section#about .blurb span {
   display: none;
@@ -288,6 +300,9 @@ section#about .text-content.open .btn-group .light-btn img {
   transform: rotate(180deg);
 }
 
+section#services .text-content {
+  max-width: 520px;
+}
 section#services .blurb .small {
   display: flex;
   align-items: center;
@@ -308,6 +323,7 @@ section#insurance .insurance-list:nth-child(2) {
 section#insurance .insurance-list-entry > .small {
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 section#insurance .insurance-list-entry > .small img {
   margin-right: 20px;
@@ -326,41 +342,50 @@ section#insurance .insurance-list-entry .insurance-list-wrapper::before {
   transform-origin: top;
   width: 1px;
   background: black;
-  opacity: 0.5;
   margin-right: 10px;
   transition: transform 300ms ease-in-out 100ms;
 }
 section#insurance .insurance-list-entry .insurance-list-wrapper ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   overflow: hidden;
   height: 0;
   transition: height 200ms ease-out;
+}
+section#insurance .insurance-list-entry .insurance-list-wrapper ul > .small {
+  font-weight: lighter;
 }
 section#insurance .insurance-list-entry.open > .small img {
   transform: rotate(180deg);
 }
 section#insurance .insurance-list-entry.open .insurance-list-wrapper::before {
-  height: 280px;
+  height: 250px;
   transform: scaleY(1);
 }
 section#insurance .insurance-list-entry.open .insurance-list-wrapper ul {
-  height: 280px;
+  height: 250px;
+  margin-bottom: 20px;
 }
 section#insurance .insurance-list.optical .insurance-list-entry.open .insurance-list-wrapper::before, section#insurance .insurance-list.optical .insurance-list-entry.open .insurance-list-wrapper ul {
   height: 175px;
 }
 
-section#frames .blurb {
+section#frames .text-content {
   max-width: 485px;
 }
 
-section#contactlenses .blurb {
+section#contactlenses .text-content {
   max-width: 515px;
 }
 
-section#orthok .blurb {
-  max-width: 550px;
+section#orthok .text-content {
+  max-width: 460px;
 }
 
+section#directions .content {
+  max-width: 1000px;
+}
 section#directions .content:nth-child(1) {
   margin-bottom: 80px;
 }
@@ -379,6 +404,13 @@ section#directions .content:nth-child(1) img {
   width: 30px;
 }
 
+section#end .content {
+  max-width: 700px;
+}
+section#end .content .title {
+  white-space: nowrap;
+}
+
 footer {
   background: black;
   display: flex;
@@ -388,27 +420,48 @@ footer {
   padding: 20px 0;
 }
 footer .content {
-  max-width: 700px;
+  max-width: 800px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
 }
 footer .footer-links {
   width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-row-gap: 10px;
 }
 footer .footer-links a {
   color: white;
-  padding: 0 10px;
+}
+footer .footer-info {
+  width: 100%;
+  margin: 40px 0;
+}
+footer .footer-info .tiny {
+  color: white;
+  display: flex;
+}
+footer .footer-info .tiny img {
+  margin-right: 20px;
+}
+footer .footer-info .tiny:nth-child(2) {
+  margin: 20px 0;
 }
 footer .logo {
   margin-top: 10px;
-  text-align: center;
 }
 
+@media screen and (min-width: 515px) {
+  .home-temp-nav-group {
+    display: flex;
+  }
+
+  aside {
+    margin-left: 50px;
+  }
+}
 @media screen and (max-width: 819px) {
   body.open {
     overflow: hidden;
@@ -433,19 +486,138 @@ footer .logo {
     opacity: 1;
   }
 }
+@media screen and (min-width: 950px) {
+  footer .content {
+    width: 100%;
+    align-items: center;
+  }
+  footer .footer-links {
+    display: flex;
+    justify-content: space-between;
+  }
+  footer .footer-info {
+    display: flex;
+    justify-content: space-between;
+  }
+  footer .footer-info .tiny:nth-child(2) {
+    margin: 0 20px;
+  }
+  footer .logo {
+    text-align: center;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .order1 .text-content {
+    order: 1;
+  }
+  .order1 .view-content {
+    order: 2;
+  }
+
+  .order2 .text-content {
+    order: 2;
+  }
+  .order2 .view-content {
+    order: 1;
+  }
+
+  main .content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    justify-items: center;
+  }
+  main .view-content {
+    margin-top: 0;
+  }
+
+  section#home .learnmore {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    color: #005B60;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  section#home .learnmore img {
+    margin-top: 5px;
+  }
+
+  section#insurance .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  section#insurance .content .insurance-list {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 50px;
+  }
+  section#insurance .content .insurance-list:nth-child(2) {
+    margin-bottom: 100px;
+  }
+  section#insurance .content .insurance-list.optical {
+    justify-content: center;
+  }
+  section#insurance .content .insurance-list-entry > .small {
+    cursor: default;
+    pointer-events: none;
+  }
+  section#insurance .content .insurance-list-entry .insurance-list-wrapper::before {
+    height: 250px;
+    transform: scaleY(1);
+  }
+  section#insurance .content .insurance-list-entry .insurance-list-wrapper ul {
+    height: 250px;
+  }
+
+  section#end .view-content {
+    display: flex;
+    justify-content: center;
+  }
+}
 @media screen and (min-width: 1402px) {
-  header .quick {
+  header .info {
     display: flex;
   }
-  header .quick .tiny {
+  header .info .tiny {
     color: white;
     display: flex;
   }
-  header .quick .tiny img {
+  header .info .tiny img {
     margin-right: 20px;
   }
-  header .quick .tiny:nth-child(1) {
+  header .info .tiny:nth-child(1) {
     margin-right: 40px;
+  }
+}
+@media screen and (min-width: 1450px) {
+  section {
+    padding-left: 160px !important;
+    padding-right: 160px !important;
+  }
+
+  main .content {
+    width: 95%;
+  }
+
+  aside {
+    position: fixed;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+  }
+  aside::before {
+    order: 2;
+    margin-left: 10px;
+    margin-right: 0;
+  }
+  aside .aside-links {
+    align-items: flex-end;
   }
 }
 
