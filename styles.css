@@ -18,6 +18,12 @@ body {
   opacity: 0;
 }
 
+.stretch-wrapper {
+  height: 100%;
+  display: grid;
+  grid-template-rows: 1fr auto;
+}
+
 .large {
   font-family: "Playfair Display", serif;
   font-weight: lighter;
@@ -159,6 +165,7 @@ header nav {
 header nav a.small {
   font-weight: lighter;
   color: white;
+  font-size: min(10vw, 60px);
   display: block;
   text-align: left;
   margin-left: 10%;
@@ -174,16 +181,16 @@ header nav.open a.small:nth-child(1) {
   animation-delay: 0;
 }
 header nav.open a.small:nth-child(2) {
-  animation-delay: 150ms;
+  animation-delay: 100ms;
 }
 header nav.open a.small:nth-child(3) {
-  animation-delay: 300ms;
+  animation-delay: 200ms;
 }
 header nav.open a.small:nth-child(4) {
-  animation-delay: 450ms;
+  animation-delay: 300ms;
 }
 header nav.open a.small:nth-child(5) {
-  animation-delay: 600ms;
+  animation-delay: 400ms;
 }
 
 @keyframes fadeIn {
@@ -255,6 +262,9 @@ aside .aside-links a {
   font-weight: normal;
 }
 
+section#home {
+  min-height: 95vh;
+}
 section#home .text-content {
   max-width: 490px;
 }
