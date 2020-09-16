@@ -301,6 +301,9 @@ section#about .text-content.open .btn-group .light-btn img {
 section#services .text-content {
   max-width: 520px;
 }
+section#services .blurb {
+  margin-top: 50px;
+}
 section#services .blurb .small {
   display: flex;
   align-items: center;
@@ -520,10 +523,11 @@ footer .logo {
   }
 
   main .content {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     align-items: center;
     justify-items: center;
+    grid-column-gap: 50px;
   }
   main .view-content {
     margin-top: 0;
@@ -592,22 +596,12 @@ footer .logo {
   header .info .tiny:nth-child(1) {
     margin-right: 40px;
   }
-}
-@media screen and (min-width: 1450px) {
-  section {
-    padding-left: 160px !important;
-    padding-right: 160px !important;
-  }
-
-  main .content {
-    width: 95%;
-  }
 
   aside {
     z-index: 98;
     position: fixed;
     top: 50%;
-    right: 10px;
+    right: 5px;
     transform: translateY(-50%);
   }
   aside::before {
@@ -617,6 +611,16 @@ footer .logo {
   }
   aside .aside-links {
     align-items: flex-end;
+  }
+}
+@media screen and (min-width: 1402px) {
+  section {
+    padding-left: 160px !important;
+    padding-right: 160px !important;
+  }
+
+  main .content {
+    width: 95%;
   }
 }
 
