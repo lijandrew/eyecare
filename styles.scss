@@ -211,6 +211,52 @@ header {
   }
 }
 
+main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  .content {
+    max-width: 1400px;
+  }
+  section {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 120px 0;
+  }
+  section:nth-child(1) {
+    padding-top: 200px;
+  }
+  .text-content {
+    display: inline-block;
+    .medium {
+      display: inline-block;
+    }
+    .blurb {
+      margin-top: 25px;
+    }
+    .btn-group {
+      margin-top: 50px;
+    }
+  }
+  .view-content {
+    margin-top: 100px;
+    width: 100%;
+    img {
+      width: 100%;
+      max-width: 600px;
+    }
+    & > img {
+      filter: drop-shadow(15px 15px 10px #c1c1c1);
+    }
+  }
+  section:nth-child(even) {
+    background: $light;
+  }
+}
+
 footer {
   background: black;
   display: flex;

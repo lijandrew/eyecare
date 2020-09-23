@@ -1,0 +1,32 @@
+$dark: #005B60;
+$light: #F3F9FA;
+
+main section {
+  .content {
+    display: flex;
+    flex-direction: column;
+    .text-content {
+      margin: auto;
+    }
+    .view-content {
+      display: grid;
+      grid-gap: 50px;
+      justify-items: center;
+      img {
+        max-width: 300px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  main section .content .view-content {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (min-width: 1120px) {
+  main section .content .view-content {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}

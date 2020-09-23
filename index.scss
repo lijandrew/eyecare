@@ -1,48 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto:wght@300;400;500&display=swap');
 $dark: #005B60;
 $light: #F3F9FA;
-
-main {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  .content {
-    max-width: 1400px;
-  }
-  section {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 120px 0;
-  }
-  section:nth-child(1) {
-    padding-top: 200px;
-  }
-  .text-content {
-    .blurb {
-      margin-top: 25px;
-    }
-    .btn-group {
-      margin-top: 50px;
-    }
-  }
-  .view-content {
-    margin-top: 100px;
-    width: 100%;
-    img {
-      width: 100%;
-      max-width: 600px;
-    }
-    & > img {
-      filter: drop-shadow(15px 15px 10px #c1c1c1);
-    }
-  }
-  section:nth-child(even) {
-    background: $light;
-  }
-}
 
 aside {
   display: flex;

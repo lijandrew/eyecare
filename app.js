@@ -1,7 +1,3 @@
-let body = document.querySelector("body");
-let nav = document.querySelector("nav");
-let about = document.querySelector("section#about");
-
 
 function setupMobileNav() {
   /*
@@ -23,8 +19,8 @@ function setupMobileNav() {
   }
 }
 
-
 function setupHome() {
+  let about = document.querySelector("section#about");
   let aboutTextContent = about.querySelector(".text-content");
   let readMore = about.querySelector("section#about .light-btn");
   readMore.addEventListener("click", () => {
@@ -39,11 +35,29 @@ function setupHome() {
   }
 }
 
+function setupFrames() {
+
+}
+
+function setupContactlenses() {}
+
 
 function main() {
+  let body = document.querySelector("body");
   window.onload = () => {
     setupMobileNav();
-    setupHome();
+    switch(window.location.pathname) {
+      case "/":
+      case "/index.html":
+        setupHome();
+        break;
+      case "/frames.html":
+        setupFrames();
+        break;
+      case "/contactlenses.html":
+        setupContactlenses();
+        break;
+    }
     body.style.opacity = 1;
   };
 }

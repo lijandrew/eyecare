@@ -201,6 +201,52 @@ header nav.open a.small:nth-child(5) {
     opacity: 1;
   }
 }
+main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+main .content {
+  max-width: 1400px;
+}
+main section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 120px 0;
+}
+main section:nth-child(1) {
+  padding-top: 200px;
+}
+main .text-content {
+  display: inline-block;
+}
+main .text-content .medium {
+  display: inline-block;
+}
+main .text-content .blurb {
+  margin-top: 25px;
+}
+main .text-content .btn-group {
+  margin-top: 50px;
+}
+main .view-content {
+  margin-top: 100px;
+  width: 100%;
+}
+main .view-content img {
+  width: 100%;
+  max-width: 600px;
+}
+main .view-content > img {
+  filter: drop-shadow(15px 15px 10px #c1c1c1);
+}
+main section:nth-child(even) {
+  background: #F3F9FA;
+}
+
 footer {
   background: black;
   display: flex;

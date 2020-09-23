@@ -1,0 +1,28 @@
+main section .content {
+  display: flex;
+  flex-direction: column;
+}
+main section .content .text-content {
+  margin: auto;
+}
+main section .content .view-content {
+  display: grid;
+  grid-gap: 50px;
+  justify-items: center;
+}
+main section .content .view-content img {
+  max-width: 300px;
+}
+
+@media screen and (min-width: 768px) {
+  main section .content .view-content {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media screen and (min-width: 1120px) {
+  main section .content .view-content {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+/*# sourceMappingURL=frames.css.map */
