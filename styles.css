@@ -229,10 +229,13 @@ main .text-content .btn-group {
 main .view-content {
   margin-top: 100px;
   width: 100%;
-  max-width: 500px;
 }
 main .view-content img {
   width: 100%;
+  max-width: 600px;
+}
+main .view-content > img {
+  filter: drop-shadow(15px 15px 10px #c1c1c1);
 }
 main section:nth-child(even) {
   background: #F3F9FA;
@@ -301,6 +304,9 @@ section#about .text-content.open .btn-group .light-btn img {
 section#services .text-content {
   max-width: 520px;
 }
+section#services .view-content img {
+  max-width: 400px;
+}
 section#services .blurb {
   margin-top: 50px;
 }
@@ -342,8 +348,9 @@ section#insurance .insurance-list-entry .insurance-list-wrapper::before {
   transform: scaleY(0);
   transform-origin: top;
   width: 1px;
-  background: black;
+  background: #005B60;
   margin-right: 10px;
+  margin-left: 5px;
   transition: transform 300ms ease-in-out 100ms;
 }
 section#insurance .insurance-list-entry .insurance-list-wrapper ul {
@@ -405,9 +412,6 @@ section#directions .content:nth-child(1) img {
   width: 30px;
 }
 
-section#end .content {
-  max-width: 700px;
-}
 section#end .content .title {
   white-space: nowrap;
 }
@@ -531,6 +535,8 @@ footer .logo {
   }
   main .view-content {
     margin-top: 0;
+    display: flex;
+    justify-content: center;
   }
 
   section#home .learnmore {
@@ -546,6 +552,13 @@ footer .logo {
   }
   section#home .learnmore img {
     margin-top: 5px;
+  }
+
+  section#about p.blurb span {
+    display: inline;
+  }
+  section#about .btn-group {
+    display: none;
   }
 
   section#insurance .content {
@@ -575,6 +588,10 @@ footer .logo {
   }
   section#insurance .content .insurance-list-entry .insurance-list-wrapper ul {
     height: 250px;
+  }
+
+  section#directions .view-content {
+    flex-direction: column;
   }
 
   section#end .view-content {
