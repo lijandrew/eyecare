@@ -86,7 +86,7 @@ li {
 
 .active {
   cursor: default !important;
-  color: rgb(134, 134, 134) !important;
+  opacity: 0.5 !important;
   font-weight: lighter !important;
 }
 
@@ -105,13 +105,15 @@ li {
 }
 
 .dark-btn {
-  background: $dark;
-  color: white;
+  background: $dark !important;
+  color: white !important;
+  text-decoration: none !important;
 }
 
 .light-btn {
-  border: 1px solid $dark;
-  color: $dark;
+  border: 1px solid $dark !important;
+  background: none !important;
+  color: $dark !important;
 }
 
 .logo {
@@ -177,11 +179,12 @@ header {
       display: block;
       text-align: left;
       margin-left: 10%;
-      opacity: 0;
+      // opacity: 0;
     }
   }
   nav.open {
     display: flex;
+    /*
     a.small {
       animation: fadeIn 500ms ease-out forwards;
       &:nth-child(1) {
@@ -200,6 +203,7 @@ header {
         animation-delay: 400ms;
       }
     }
+    */
   }
 }
 @keyframes fadeIn {
@@ -282,7 +286,7 @@ footer {
   }
   .footer-info {
     width: 100%;
-    margin: 40px 0;
+    margin: 20px 0;
     .tiny {
       color: white;
       display: flex;

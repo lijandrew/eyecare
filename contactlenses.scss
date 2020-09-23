@@ -1,0 +1,14 @@
+$dark: #005B60;
+
+main section {
+  .content {
+    display: flex;
+    justify-content: center;
+    .text-content {
+      a {
+        color: $dark;
+        text-decoration: underline;
+      }
+    }
+  }
+}

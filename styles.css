@@ -78,7 +78,7 @@ li {
 
 .active {
   cursor: default !important;
-  color: #868686 !important;
+  opacity: 0.5 !important;
   font-weight: lighter !important;
 }
 
@@ -95,13 +95,15 @@ li {
 }
 
 .dark-btn {
-  background: #005B60;
-  color: white;
+  background: #005B60 !important;
+  color: white !important;
+  text-decoration: none !important;
 }
 
 .light-btn {
-  border: 1px solid #005B60;
-  color: #005B60;
+  border: 1px solid #005B60 !important;
+  background: none !important;
+  color: #005B60 !important;
 }
 
 .logo {
@@ -169,28 +171,29 @@ header nav a.small {
   display: block;
   text-align: left;
   margin-left: 10%;
-  opacity: 0;
 }
 header nav.open {
   display: flex;
-}
-header nav.open a.small {
-  animation: fadeIn 500ms ease-out forwards;
-}
-header nav.open a.small:nth-child(1) {
-  animation-delay: 0;
-}
-header nav.open a.small:nth-child(2) {
-  animation-delay: 100ms;
-}
-header nav.open a.small:nth-child(3) {
-  animation-delay: 200ms;
-}
-header nav.open a.small:nth-child(4) {
-  animation-delay: 300ms;
-}
-header nav.open a.small:nth-child(5) {
-  animation-delay: 400ms;
+  /*
+  a.small {
+    animation: fadeIn 500ms ease-out forwards;
+    &:nth-child(1) {
+      animation-delay: 0;
+    }
+    &:nth-child(2) {
+      animation-delay: 100ms;
+    }
+    &:nth-child(3) {
+      animation-delay: 200ms;
+    }
+    &:nth-child(4) {
+      animation-delay: 300ms;
+    }
+    &:nth-child(5) {
+      animation-delay: 400ms;
+    }
+  }
+  */
 }
 
 @keyframes fadeIn {
@@ -273,7 +276,7 @@ footer .footer-links a {
 }
 footer .footer-info {
   width: 100%;
-  margin: 40px 0;
+  margin: 20px 0;
 }
 footer .footer-info .tiny {
   color: white;
