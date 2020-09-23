@@ -1,0 +1,382 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto:wght@300;400;500&display=swap');
+$dark: #005B60;
+$light: #F3F9FA;
+
+main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  .content {
+    max-width: 1400px;
+  }
+  section {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 120px 0;
+  }
+  section:nth-child(1) {
+    padding-top: 200px;
+  }
+  .text-content {
+    .blurb {
+      margin-top: 25px;
+    }
+    .btn-group {
+      margin-top: 50px;
+    }
+  }
+  .view-content {
+    margin-top: 100px;
+    width: 100%;
+    img {
+      width: 100%;
+      max-width: 600px;
+    }
+    & > img {
+      filter: drop-shadow(15px 15px 10px #c1c1c1);
+    }
+  }
+  section:nth-child(even) {
+    background: $light;
+  }
+}
+
+aside {
+  display: flex;
+  align-items: center;
+  &::before {
+    content: '';
+    display: block;
+    height: 250px;
+    width: 1px;
+    background: black;
+    margin-right: 10px;
+  }
+  .aside-links {
+    height: 250px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    a {
+      display: block;
+      color: $dark;
+      font-weight: normal;
+    }
+  }
+}
+
+section#home {
+  min-height: 95vh;
+  .text-content {
+    max-width: 490px;
+  }
+  aside {
+    margin-top: 50px;
+  }
+  .learnmore {
+    display: none;
+  }
+}
+
+section#about {
+  .text-content {
+    max-width: 540px;
+  }
+  .btn-group .light-btn img {
+    margin-right: 20px;
+    transition: transform 200ms ease-out;
+  }
+  .btn-group .light-btn::after {
+    content: "Show more";
+  }
+  .blurb span {
+    display: none;
+  }
+  .text-content.open {
+    .btn-group .light-btn::after {
+      content: "Show less";
+    }
+    .blurb span {
+      display: inline;
+    }
+    .btn-group .light-btn img {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+section#services {
+  .text-content {
+    max-width: 520px;
+  }
+  .view-content img {
+    max-width: 400px;
+  }
+  .blurb {
+    margin-top: 50px;
+    .small {
+      display: flex;
+      align-items: center;
+      img {
+        margin-right: 20px;
+      }
+      &:nth-child(2) {
+        margin: 20px 0;
+      }
+    }
+  }
+}
+
+section#insurance {
+  .insurance-list {
+    margin-top: 25px;
+  }
+  .insurance-list:nth-child(2) {
+    margin-bottom: 50px;
+  }
+  .insurance-list-entry {
+    & > .small {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      img {
+        margin-right: 20px;
+        transition: transform 200ms ease-out;
+      }
+    }
+    .insurance-list-wrapper {
+      margin-top: 10px;
+      display: flex;
+      align-items: flex-start;
+      &::before {
+        content: '';
+        display: block;
+        height: 0;
+        transform: scaleY(0);
+        transform-origin: top;
+        width: 1px;
+        background: $dark;
+        margin-right: 10px;
+        margin-left: 5px;
+        transition: transform 300ms ease-in-out 100ms;
+      }
+      ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        overflow: hidden;
+        height: 0;
+        transition: height 200ms ease-out;
+        & > .small {
+          font-weight: lighter;
+        }
+      }
+    }
+  }
+  .insurance-list-entry.open {
+    & > .small img {
+      transform: rotate(180deg);
+    }
+    .insurance-list-wrapper {
+      &::before {
+        height: 250px;
+        transform: scaleY(1);
+      }
+      ul {
+        height: 250px;
+        margin-bottom: 20px;
+      }
+    }
+  }
+  .insurance-list.optical {
+    .insurance-list-entry.open .insurance-list-wrapper {
+      &::before,ul {
+        height: 175px;
+      }
+    }
+  }
+}
+
+section#frames {
+  .text-content {
+    max-width: 485px;
+  }
+}
+
+section#contactlenses {
+  .text-content {
+    max-width: 515px;
+  }
+}
+
+section#orthok {
+  .text-content {
+    max-width: 460px;
+  }
+}
+
+section#directions {
+  .content {
+    max-width: 1000px;
+  }
+  .content:nth-child(1) {
+    margin-bottom: 80px;
+    .view-content {
+      .small {
+        display: flex;
+        align-items: center;
+        max-width: 435px;
+        img {
+          margin-right: 20px;
+        }
+        &:nth-child(2) {
+          margin: 50px 0;
+        }
+      }
+    }
+    img {
+      width: 30px;
+    }
+  }
+}
+
+section#end {
+  .content {
+    max-width: 600px;
+    .title {
+      white-space: nowrap;
+    }
+  }
+}
+
+@media screen and (min-width: 515px) {
+  .home-temp-nav-group {
+    display: flex;
+  }
+  aside {
+    margin-left: 50px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .order1 {
+    .text-content {
+      order: 1;
+    }
+    .view-content {
+      order: 2;
+    }
+  }
+  .order2 {
+    .text-content {
+      order: 2;
+    }
+    .view-content {
+      order: 1;
+    }
+  }
+  main {
+    .content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      justify-items: center;
+      grid-column-gap: 50px;
+    }
+    .view-content {
+      margin-top: 0;
+      display: flex;
+      justify-content: center;
+    }
+  }
+  section#home {
+    .learnmore {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      color: $dark;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      img {
+        margin-top: 5px;
+      }
+    }
+  }
+  section#about {
+    p.blurb span {
+      display: inline;
+    }
+    .btn-group {
+      display: none;
+    }
+  }
+  section#insurance {
+    .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .insurance-list {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        margin-top: 50px;
+      }
+      .insurance-list:nth-child(2) {
+        margin-bottom: 100px;
+      }
+      .insurance-list.optical {
+        justify-content: center;
+      }
+      .insurance-list-entry {
+        & > .small {
+          cursor: default;
+          pointer-events: none;
+        }
+        .insurance-list-wrapper {
+          &::before {
+            height: 250px;
+            transform: scaleY(1);
+          }
+          ul {
+            height: 250px;
+          }
+        }
+      }
+    }
+  }
+  section#directions {
+    .view-content {
+      flex-direction: column;
+    }
+  }
+  section#end {
+    .view-content {
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
+
+@media screen and (min-width: 1402px) {
+  aside {
+    z-index: 98;
+    position: fixed;
+    top: 50%;
+    right: 5px;
+    transform: translateY(-50%);
+    &::before {
+      order: 2;
+      margin-left: 10px;
+      margin-right: 0;
+    }
+    .aside-links {
+      align-items: flex-end;
+    }
+  }
+}
