@@ -90,6 +90,18 @@ li {
   font-weight: lighter !important;
 }
 
+.dark-btn {
+  background: $dark !important;
+  color: white !important;
+  border: 1px solid $dark;
+  text-decoration: none !important;
+}
+
+.light-btn {
+  border: 1px solid $dark !important;
+  background: none !important;
+  color: $dark !important;
+}
 .dark-btn,.light-btn {
   user-select: none;
   cursor: pointer;
@@ -99,21 +111,14 @@ li {
   border-radius: 30px;
   font-size: 20px;
   display: flex;
-
-  // test browser support
-  width: max-content;
-}
-
-.dark-btn {
-  background: $dark !important;
-  color: white !important;
-  text-decoration: none !important;
-}
-
-.light-btn {
-  border: 1px solid $dark !important;
-  background: none !important;
-  color: $dark !important;
+  width: max-content; // test browser support
+  transition: background 200ms ease-out,
+              color 200ms ease-out;
+  &:hover {
+    background: black !important;
+    color: white !important;
+    border: 1px solid black !important;
+  }
 }
 
 .logo {

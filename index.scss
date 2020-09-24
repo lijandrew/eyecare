@@ -261,8 +261,12 @@ section#end {
       justify-content: center;
       align-items: center;
       img {
-        margin-top: 5px;
+        margin-top: 2px;
+        transition: transform 200ms ease-out;
       }
+    }
+    .learnmore:hover img {
+      transform: translateY(5px);
     }
   }
   section#about {

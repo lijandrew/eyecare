@@ -82,6 +82,19 @@ li {
   font-weight: lighter !important;
 }
 
+.dark-btn {
+  background: #005B60 !important;
+  color: white !important;
+  border: 1px solid #005B60;
+  text-decoration: none !important;
+}
+
+.light-btn {
+  border: 1px solid #005B60 !important;
+  background: none !important;
+  color: #005B60 !important;
+}
+
 .dark-btn, .light-btn {
   user-select: none;
   cursor: pointer;
@@ -92,18 +105,12 @@ li {
   font-size: 20px;
   display: flex;
   width: max-content;
+  transition: background 200ms ease-out, color 200ms ease-out;
 }
-
-.dark-btn {
-  background: #005B60 !important;
+.dark-btn:hover, .light-btn:hover {
+  background: black !important;
   color: white !important;
-  text-decoration: none !important;
-}
-
-.light-btn {
-  border: 1px solid #005B60 !important;
-  background: none !important;
-  color: #005B60 !important;
+  border: 1px solid black !important;
 }
 
 .logo {

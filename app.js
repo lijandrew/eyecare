@@ -33,6 +33,30 @@ function setupHome() {
       insuranceListEntry.classList.toggle("open");
     });
   }
+
+  // home
+  gsap.from("section#home .view-content", {
+    opacity: 0,
+    transform: "translateY(-30px)",
+    duration: 1,
+    delay: 0.3,
+    ease: "power2.out",
+  });
+
+  // about
+  gsap.timeline({scrollTrigger: {markers: true, start: "10% bottom", trigger: "section#about"}})
+      .from("section#about .text-content", {
+        opacity: 0,
+        transform: "translateX(30px)",
+        duration: 0.8,
+        ease: "power1.out",
+      }, "1")
+      .from("section#about .view-content", {
+        opacity: 0,
+        transform: "translateX(-30px)",
+        duration: 0.8,
+        ease: "power1.out",
+      }, "1");
 }
 
 function setupFrames() {

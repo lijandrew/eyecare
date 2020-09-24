@@ -225,7 +225,11 @@ section#end .content .title {
     align-items: center;
   }
   section#home .learnmore img {
-    margin-top: 5px;
+    margin-top: 2px;
+    transition: transform 200ms ease-out;
+  }
+  section#home .learnmore:hover img {
+    transform: translateY(5px);
   }
 
   section#about p.blurb span {
