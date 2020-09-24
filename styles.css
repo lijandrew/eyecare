@@ -273,6 +273,7 @@ footer .footer-links {
 }
 footer .footer-links a {
   color: white;
+  font-weight: lighter;
 }
 footer .footer-info {
   width: 100%;
