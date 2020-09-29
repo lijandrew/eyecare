@@ -35,28 +35,94 @@ function setupHome() {
   }
 
   // home
-  gsap.from("section#home .view-content", {
+  gsap.from("section#home .content .view-content", {
     opacity: 0,
-    transform: "translateY(-30px)",
-    duration: 1,
-    delay: 0.3,
-    ease: "power2.out",
+    transform: "translateY(20px)",
+    duration: 0.6,
+    ease: "power1.out",
+    scrollTrigger: {
+      trigger: "section#home .view-content",
+    }
   });
 
-  // about
-  gsap.timeline({scrollTrigger: {markers: true, start: "10% bottom", trigger: "section#about"}})
-      .from("section#about .text-content", {
-        opacity: 0,
-        transform: "translateX(30px)",
-        duration: 0.8,
-        ease: "power1.out",
-      }, "1")
-      .from("section#about .view-content", {
-        opacity: 0,
-        transform: "translateX(-30px)",
-        duration: 0.8,
-        ease: "power1.out",
-      }, "1");
+  gsap.from("section#about .view-content", {
+    opacity: 0,
+    transform: "translateY(20px)",
+    duration: 0.6,
+    ease: "power1.out",
+    scrollTrigger: {
+      trigger: "section#about .view-content",
+    },
+  });
+  gsap.from("section#services .view-content", {
+    opacity: 0,
+    transform: "translateY(20px)",
+    duration: 0.6,
+    ease: "power1.out",
+    scrollTrigger: {
+      trigger: "section#services .view-content",
+    },
+  });
+  gsap.from("section#insurance .content .insurance-list-entry", {
+    opacity: 0,
+    transform: "translateY(20px)",
+    duration: 0.5,
+    ease: "power1.out",
+    stagger: {
+      amount: 0.5,
+    },
+    scrollTrigger: {
+      trigger: "section#insurance",
+      start: "30% bottom"
+    },
+  });
+  gsap.from("section#frames .view-content", {
+    opacity: 0,
+    transform: "translateY(20px)",
+    duration: 0.6,
+    ease: "power1.out",
+    scrollTrigger: {
+      trigger: "section#frames .view-content",
+    },
+  });
+  gsap.from("section#contactlenses .view-content", {
+    opacity: 0,
+    transform: "translateY(20px)",
+    duration: 0.6,
+    ease: "power1.out",
+    scrollTrigger: {
+      trigger: "section#contactlenses .view-content",
+    },
+  });
+  gsap.from("section#orthok .view-content", {
+    opacity: 0,
+    transform: "translateY(20px)",
+    duration: 0.6,
+    ease: "power1.out",
+    scrollTrigger: {
+      trigger: "section#orthok .view-content",
+    },
+  });
+  gsap.from("section#directions .view-content", {
+    opacity: 0,
+    transform: "translateY(20px)",
+    duration: 0.6,
+    ease: "power1.out",
+    scrollTrigger: {
+      trigger: "section#directions .view-content",
+    },
+  });
+  gsap.from("section#end .btn-group > a", {
+    opacity: 0,
+    transform: "translateX(-20px)",
+    duration: 0.5,
+    ease: "power1.out",
+    stagger: 0.2,
+    scrollTrigger: {
+      trigger: "section#end .view-content",
+    },
+  });
+
 }
 
 function setupFrames() {
