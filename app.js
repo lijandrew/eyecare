@@ -133,18 +133,20 @@ function setupContactlenses() {}
 
 
 function main() {
-  let body = document.querySelector("body");
   window.onload = () => {
+    let body = document.querySelector("body");
     setupMobileNav();
-    switch(window.location.pathname) {
-      case "/":
-      case "/index.html":
+    let pathArr = window.location.pathname.split("/");
+    let page = pathArr[pathArr.length - 1];
+    switch(page) {
+      case "":
+      case "index.html":
         setupHome();
         break;
-      case "/frames.html":
+      case "frames.html":
         setupFrames();
         break;
-      case "/contactlenses.html":
+      case "contactlenses.html":
         setupContactlenses();
         break;
     }
