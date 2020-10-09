@@ -22,7 +22,7 @@ function setupMobileNav() {
 function setupHome() {
   let about = document.querySelector("section#about");
   let aboutTextContent = about.querySelector(".text-content");
-  let readMore = about.querySelector("section#about .light-btn");
+  let readMore = about.querySelector(".readmore");
   readMore.addEventListener("click", () => {
     aboutTextContent.classList.toggle("open");
   });

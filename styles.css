@@ -42,7 +42,7 @@ body {
 
 .small {
   font-family: "Roboto", sans-serif;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: normal;
   line-height: 150%;
 }
@@ -50,7 +50,7 @@ body {
 .tiny {
   font-family: "Roboto", sans-serif;
   font-weight: lighter;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 150%;
 }
 
@@ -100,11 +100,11 @@ li {
   position: relative;
   user-select: none;
   cursor: pointer;
-  padding: 15px 25px;
+  padding: 12px 20px;
   margin-bottom: 15px;
   font-family: "Roboto", sans-serif;
   border-radius: 30px;
-  font-size: 20px;
+  font-size: 18px;
   display: flex;
   overflow: hidden;
   width: max-content;
@@ -338,7 +338,7 @@ footer .logo {
     width: auto;
   }
   header nav a.small {
-    font-size: 20px;
+    font-size: 16px;
     display: inline-block;
     margin-left: 20px;
     opacity: 1;
@@ -348,17 +348,15 @@ footer .logo {
   footer .content {
     width: 100%;
     align-items: center;
+    flex-direction: row-reverse;
+    justify-content: space-between;
   }
   footer .footer-links {
-    display: flex;
-    justify-content: space-between;
+    width: max-content;
+    grid-template-columns: 1fr;
   }
   footer .footer-info {
-    display: flex;
-    justify-content: space-between;
-  }
-  footer .footer-info .tiny:nth-child(2) {
-    margin: 0 20px;
+    width: max-content;
   }
   footer .logo {
     text-align: center;
@@ -380,7 +378,7 @@ footer .logo {
     width: 20px;
   }
   header .info .tiny:nth-child(1) {
-    margin-right: 20px;
+    margin-right: 40px;
   }
 }
 @media screen and (min-width: 1402px) {

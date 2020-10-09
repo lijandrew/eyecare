@@ -12,6 +12,10 @@ main section .content .view-content {
 }
 main section .content .view-content img {
   max-width: 300px;
+  transition: transform 300ms ease-out;
+}
+main section .content .view-content img:hover {
+  transform: scale(1.05);
 }
 
 @media screen and (min-width: 768px) {

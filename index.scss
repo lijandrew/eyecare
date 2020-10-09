@@ -7,13 +7,13 @@ aside {
   &::before {
     content: '';
     display: block;
-    height: 250px;
+    height: 200px;
     width: 1px;
     background: black;
     margin-right: 10px;
   }
   .aside-links {
-    height: 250px;
+    height: 200px;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
@@ -42,26 +42,32 @@ section#about {
   .text-content {
     max-width: 540px;
   }
-  .btn-group .light-btn img {
-    margin-right: 20px;
+  .readmore {
+    color: $dark;
+  }
+  .readmore img {
+    margin-left: 20px;
     transition: transform 200ms ease-out;
   }
-  .btn-group .light-btn::after {
-    content: "Show more";
+  .readmore::before {
+    content: "Read more";
   }
   .blurb span {
     display: none;
   }
   .text-content.open {
-    .btn-group .light-btn::after {
-      content: "Show less";
+    .readmore::before {
+      content: "Hide";
     }
     .blurb span {
       display: inline;
     }
-    .btn-group .light-btn img {
+    .readmore img {
       transform: rotate(180deg);
     }
+  }
+  .view-content img {
+    max-width: 400px;
   }
 }
 
@@ -255,13 +261,14 @@ section#end {
       bottom: 20px;
       left: 50%;
       color: $dark;
+      font-weight: normal;
       transform: translateX(-50%);
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       img {
-        margin-top: 2px;
+        margin-top: 5px;
         transition: transform 200ms ease-out;
       }
     }

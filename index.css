@@ -5,13 +5,13 @@ aside {
 aside::before {
   content: "";
   display: block;
-  height: 250px;
+  height: 200px;
   width: 1px;
   background: black;
   margin-right: 10px;
 }
 aside .aside-links {
-  height: 250px;
+  height: 200px;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
@@ -38,24 +38,30 @@ section#home .learnmore {
 section#about .text-content {
   max-width: 540px;
 }
-section#about .btn-group .light-btn img {
-  margin-right: 20px;
+section#about .readmore {
+  color: #005B60;
+}
+section#about .readmore img {
+  margin-left: 20px;
   transition: transform 200ms ease-out;
 }
-section#about .btn-group .light-btn::after {
-  content: "Show more";
+section#about .readmore::before {
+  content: "Read more";
 }
 section#about .blurb span {
   display: none;
 }
-section#about .text-content.open .btn-group .light-btn::after {
-  content: "Show less";
+section#about .text-content.open .readmore::before {
+  content: "Hide";
 }
 section#about .text-content.open .blurb span {
   display: inline;
 }
-section#about .text-content.open .btn-group .light-btn img {
+section#about .text-content.open .readmore img {
   transform: rotate(180deg);
+}
+section#about .view-content img {
+  max-width: 400px;
 }
 
 section#services .text-content {
@@ -218,6 +224,7 @@ section#end .content .title {
     bottom: 20px;
     left: 50%;
     color: #005B60;
+    font-weight: normal;
     transform: translateX(-50%);
     display: flex;
     flex-direction: column;
@@ -225,7 +232,7 @@ section#end .content .title {
     align-items: center;
   }
   section#home .learnmore img {
-    margin-top: 2px;
+    margin-top: 5px;
     transition: transform 200ms ease-out;
   }
   section#home .learnmore:hover img {
