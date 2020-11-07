@@ -38,18 +38,17 @@ function setupHome() {
   gsap.from("section#home .content .view-content", {
     opacity: 0,
     transform: "translateY(20px)",
-    duration: 0.6,
-    ease: "power1.out",
+    duration: 1,
+    ease: "power1.inOut",
     scrollTrigger: {
       trigger: "section#home .view-content",
     }
   });
-
   gsap.from("section#about .view-content", {
     opacity: 0,
     transform: "translateY(20px)",
-    duration: 0.6,
-    ease: "power1.out",
+    duration: 1,
+    ease: "power1.inOut",
     scrollTrigger: {
       trigger: "section#about .view-content",
     },
@@ -57,8 +56,8 @@ function setupHome() {
   gsap.from("section#services .view-content", {
     opacity: 0,
     transform: "translateY(20px)",
-    duration: 0.6,
-    ease: "power1.out",
+    duration: 1,
+    ease: "power1.inOut",
     scrollTrigger: {
       trigger: "section#services .view-content",
     },
@@ -66,10 +65,10 @@ function setupHome() {
   gsap.from("section#insurance .content .insurance-list-entry", {
     opacity: 0,
     transform: "translateY(20px)",
-    duration: 0.5,
-    ease: "power1.out",
+    duration: 0.8,
+    ease: "power1.inOut",
     stagger: {
-      amount: 0.5,
+      amount: 0.8,
     },
     scrollTrigger: {
       trigger: "section#insurance",
@@ -79,8 +78,8 @@ function setupHome() {
   gsap.from("section#frames .view-content", {
     opacity: 0,
     transform: "translateY(20px)",
-    duration: 0.6,
-    ease: "power1.out",
+    duration: 1,
+    ease: "power1.inOut",
     scrollTrigger: {
       trigger: "section#frames .view-content",
     },
@@ -88,8 +87,8 @@ function setupHome() {
   gsap.from("section#contactlenses .view-content", {
     opacity: 0,
     transform: "translateY(20px)",
-    duration: 0.6,
-    ease: "power1.out",
+    duration: 1,
+    ease: "power1.inOut",
     scrollTrigger: {
       trigger: "section#contactlenses .view-content",
     },
@@ -97,8 +96,8 @@ function setupHome() {
   gsap.from("section#orthok .view-content", {
     opacity: 0,
     transform: "translateY(20px)",
-    duration: 0.6,
-    ease: "power1.out",
+    duration: 1,
+    ease: "power1.inOut",
     scrollTrigger: {
       trigger: "section#orthok .view-content",
     },
@@ -106,8 +105,8 @@ function setupHome() {
   gsap.from("section#directions .view-content", {
     opacity: 0,
     transform: "translateY(20px)",
-    duration: 0.6,
-    ease: "power1.out",
+    duration: 1,
+    ease: "power1.inOut",
     scrollTrigger: {
       trigger: "section#directions .view-content",
     },
@@ -116,7 +115,7 @@ function setupHome() {
     opacity: 0,
     transform: "translateX(-20px)",
     duration: 0.5,
-    ease: "power1.out",
+    ease: "power1.inOut",
     stagger: 0.2,
     scrollTrigger: {
       trigger: "section#end .view-content",
