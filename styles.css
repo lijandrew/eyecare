@@ -293,12 +293,10 @@ footer .content {
 }
 footer .footer-links {
   width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  grid-row-gap: 10px;
 }
 footer .footer-links a {
+  display: block;
+  margin-bottom: 10px;
   color: white;
   font-weight: lighter;
 }
@@ -312,6 +310,7 @@ footer .footer-info .tiny {
 }
 footer .footer-info .tiny img {
   margin-right: 20px;
+  max-width: 30px;
 }
 footer .footer-info .tiny:nth-child(2) {
   margin: 20px 0;
@@ -344,21 +343,27 @@ footer .logo {
     opacity: 1;
   }
 }
-@media screen and (min-width: 950px) {
+@media screen and (min-width: 500px) {
   footer .content {
     width: 100%;
+    padding: 30px !important;
+    display: grid;
+    grid-template-areas: "nav contact" "logo logo";
     align-items: center;
-    flex-direction: row-reverse;
-    justify-content: space-between;
+    grid-column-gap: 60px;
+    grid-row-gap: 30px;
   }
   footer .footer-links {
+    grid-area: nav;
     width: max-content;
-    grid-template-columns: 1fr;
   }
   footer .footer-info {
+    grid-area: contact;
     width: max-content;
   }
   footer .logo {
+    grid-area: logo;
+    min-width: 100%;
     text-align: center;
   }
 }

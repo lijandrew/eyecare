@@ -114,27 +114,13 @@ section#insurance {
       margin-top: 10px;
       display: flex;
       align-items: flex-start;
-      &::before {
-        content: '';
-        display: block;
-        height: 0;
-        transform: scaleY(0);
-        transform-origin: top;
-        width: 1px;
-        background: $dark;
-        margin-right: 10px;
-        margin-left: 5px;
-        transition: transform 300ms ease-in-out 100ms;
-      }
       ul {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        overflow: hidden;
-        height: 0;
+        margin-left: 32px;
+        display: none;
         transition: height 200ms ease-out;
         & > .small {
           font-weight: lighter;
+          padding-top: 10px;
         }
       }
     }
@@ -144,20 +130,10 @@ section#insurance {
       transform: rotate(180deg);
     }
     .insurance-list-wrapper {
-      &::before {
-        height: 250px;
-        transform: scaleY(1);
-      }
       ul {
-        height: 250px;
+        display: flex;
+        flex-direction: column;
         margin-bottom: 20px;
-      }
-    }
-  }
-  .insurance-list.optical {
-    .insurance-list-entry.open .insurance-list-wrapper {
-      &::before,ul {
-        height: 175px;
       }
     }
   }
@@ -307,12 +283,9 @@ section#end {
           pointer-events: none;
         }
         .insurance-list-wrapper {
-          &::before {
-            height: 250px;
-            transform: scaleY(1);
-          }
           ul {
-            height: 250px;
+            display: flex !important;
+            flex-direction: column;
           }
         }
       }

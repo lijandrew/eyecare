@@ -104,42 +104,22 @@ section#insurance .insurance-list-entry .insurance-list-wrapper {
   display: flex;
   align-items: flex-start;
 }
-section#insurance .insurance-list-entry .insurance-list-wrapper::before {
-  content: "";
-  display: block;
-  height: 0;
-  transform: scaleY(0);
-  transform-origin: top;
-  width: 1px;
-  background: #005B60;
-  margin-right: 10px;
-  margin-left: 5px;
-  transition: transform 300ms ease-in-out 100ms;
-}
 section#insurance .insurance-list-entry .insurance-list-wrapper ul {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  overflow: hidden;
-  height: 0;
+  margin-left: 32px;
+  display: none;
   transition: height 200ms ease-out;
 }
 section#insurance .insurance-list-entry .insurance-list-wrapper ul > .small {
   font-weight: lighter;
+  padding-top: 10px;
 }
 section#insurance .insurance-list-entry.open > .small img {
   transform: rotate(180deg);
 }
-section#insurance .insurance-list-entry.open .insurance-list-wrapper::before {
-  height: 250px;
-  transform: scaleY(1);
-}
 section#insurance .insurance-list-entry.open .insurance-list-wrapper ul {
-  height: 250px;
+  display: flex;
+  flex-direction: column;
   margin-bottom: 20px;
-}
-section#insurance .insurance-list.optical .insurance-list-entry.open .insurance-list-wrapper::before, section#insurance .insurance-list.optical .insurance-list-entry.open .insurance-list-wrapper ul {
-  height: 175px;
 }
 
 section#frames .text-content {
@@ -267,12 +247,9 @@ section#end .content .title {
     cursor: default;
     pointer-events: none;
   }
-  section#insurance .content .insurance-list-entry .insurance-list-wrapper::before {
-    height: 250px;
-    transform: scaleY(1);
-  }
   section#insurance .content .insurance-list-entry .insurance-list-wrapper ul {
-    height: 250px;
+    display: flex !important;
+    flex-direction: column;
   }
 
   section#directions .view-content {
