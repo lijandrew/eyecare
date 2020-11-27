@@ -1,25 +1,40 @@
+const body = document.querySelector("body");
 
 function setupMobileNav() {
-  /*
-  let tl = gsap.timeline( {paused: true} );
-  tl.set(nav, {display: "flex"});
-  tl.to(nav, {opacity: 1});
-  */
   let burger = document.querySelector(".burger");
   let nav = document.querySelector("nav");
+
+  // Mobile nav animation
+  let burgerTl = gsap.timeline({paused: true});
+  burgerTl.to(".line1", {transform: "translateY(50%)", duration: 0.2}, "translate");
+  burgerTl.to(".line2", {transform: "translateY(-50%)", duration: 0.2}, "translate");
+  burgerTl.to(".line1", {transform: "translateY(50%) rotate(45deg)", duration: 0.2}, "rotate");
+  burgerTl.to(".line2", {transform: "translateY(-50%) rotate(-45deg)", duration: 0.2}, "rotate");
+
+  let tl = gsap.timeline({paused: true});
+  tl.to(nav, {display: "flex", duration: 0});
+  tl.to(nav, {opacity: 1, duration: 0.2});
+  tl.to("nav > a > div", {
+    transform: "translateY(0)",
+    duration: 0.2,
+    stagger: {amount: 0.1},
+  });
+
   burger.addEventListener("click", () => {
     nav.classList.toggle("open");
     body.classList.toggle("open");
+    if (nav.classList.contains("open")) {
+      burgerTl.restart();
+      tl.restart();
+    } else {
+      burgerTl.reverse();
+      tl.reverse();
+    }
   });
-  for (let link of nav.querySelectorAll("a")) {
-    link.addEventListener("click", () => {
-      nav.classList.remove("open");
-      body.classList.remove("open");
-    });
-  }
 }
 
 function setupHome() {
+  // Bio "Read more" button (mobile only)
   let about = document.querySelector("section#about");
   let aboutTextContent = about.querySelector(".text-content");
   let readMore = about.querySelector(".readmore");
@@ -27,6 +42,7 @@ function setupHome() {
     aboutTextContent.classList.toggle("open");
   });
 
+  // Insurance tappable dropdowns (mobile only)
   for (let insuranceTitle of Array.from(document.querySelectorAll(".insurance-list-entry > .small"))) {
     let insuranceListEntry = insuranceTitle.parentElement;
     insuranceTitle.addEventListener("click", () => {
@@ -34,11 +50,12 @@ function setupHome() {
     });
   }
 
-  // home
+  // Home GSAP animations
+  let viewAniDur = 0.6;
   gsap.from("section#home .content .view-content", {
     opacity: 0,
     transform: "translateY(20px)",
-    duration: 1,
+    duration: viewAniDur,
     ease: "power1.inOut",
     scrollTrigger: {
       trigger: "section#home .view-content",
@@ -47,7 +64,7 @@ function setupHome() {
   gsap.from("section#about .view-content", {
     opacity: 0,
     transform: "translateY(20px)",
-    duration: 1,
+    duration: viewAniDur,
     ease: "power1.inOut",
     scrollTrigger: {
       trigger: "section#about .view-content",
@@ -56,7 +73,7 @@ function setupHome() {
   gsap.from("section#services .view-content", {
     opacity: 0,
     transform: "translateY(20px)",
-    duration: 1,
+    duration: viewAniDur,
     ease: "power1.inOut",
     scrollTrigger: {
       trigger: "section#services .view-content",
@@ -65,7 +82,7 @@ function setupHome() {
   gsap.from("section#insurance .content .insurance-list-entry", {
     opacity: 0,
     transform: "translateY(20px)",
-    duration: 0.8,
+    duration: viewAniDur,
     ease: "power1.inOut",
     stagger: {
       amount: 0.8,
@@ -78,7 +95,7 @@ function setupHome() {
   gsap.from("section#frames .view-content", {
     opacity: 0,
     transform: "translateY(20px)",
-    duration: 1,
+    duration: viewAniDur,
     ease: "power1.inOut",
     scrollTrigger: {
       trigger: "section#frames .view-content",
@@ -87,7 +104,7 @@ function setupHome() {
   gsap.from("section#contactlenses .view-content", {
     opacity: 0,
     transform: "translateY(20px)",
-    duration: 1,
+    duration: viewAniDur,
     ease: "power1.inOut",
     scrollTrigger: {
       trigger: "section#contactlenses .view-content",
@@ -96,7 +113,7 @@ function setupHome() {
   gsap.from("section#orthok .view-content", {
     opacity: 0,
     transform: "translateY(20px)",
-    duration: 1,
+    duration: viewAniDur,
     ease: "power1.inOut",
     scrollTrigger: {
       trigger: "section#orthok .view-content",
@@ -105,7 +122,7 @@ function setupHome() {
   gsap.from("section#directions .view-content", {
     opacity: 0,
     transform: "translateY(20px)",
-    duration: 1,
+    duration: viewAniDur,
     ease: "power1.inOut",
     scrollTrigger: {
       trigger: "section#directions .view-content",
@@ -114,40 +131,24 @@ function setupHome() {
   gsap.from("section#end .btn-group > a", {
     opacity: 0,
     transform: "translateX(-20px)",
-    duration: 0.5,
+    duration: viewAniDur,
     ease: "power1.inOut",
-    stagger: 0.2,
+    stagger: {
+      amount: 0.3,
+    },
     scrollTrigger: {
       trigger: "section#end .view-content",
     },
   });
-
 }
-
-function setupFrames() {
-
-}
-
-function setupContactlenses() {}
-
 
 function main() {
   window.onload = () => {
-    let body = document.querySelector("body");
     setupMobileNav();
     let pathArr = window.location.pathname.split("/");
     let page = pathArr[pathArr.length - 1];
-    switch(page) {
-      case "":
-      case "index.html":
-        setupHome();
-        break;
-      case "frames.html":
-        setupFrames();
-        break;
-      case "contactlenses.html":
-        setupContactlenses();
-        break;
+    if (page === "" || page === "index.html") {
+      setupHome();
     }
     body.style.opacity = 1;
   };

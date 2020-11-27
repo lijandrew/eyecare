@@ -18,8 +18,7 @@ html {
 }
 
 body {
-  // Undone by JS.
-  opacity: 0;
+  opacity: 0; // Undone by JS.
 }
 
 .stretch-wrapper {
@@ -70,9 +69,6 @@ body {
 img {
   user-select: none;
 }
-.view-content img {
-
-}
 
 a {
   text-decoration: none;
@@ -102,6 +98,7 @@ li {
   background: none !important;
   color: $dark !important;
 }
+
 .dark-btn,.light-btn {
   z-index: 1;
   position: relative;
@@ -113,33 +110,14 @@ li {
   border-radius: 30px;
   font-size: 18px;
   display: flex;
-  overflow: hidden;
   width: max-content; // test browser support
-  transition: background 200ms ease-out,
-              color 200ms ease-out;
-  &::before {
-    content: '';
-    z-index: -1;
-    display: block;
-    position: absolute;
-    background: black;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    border-radius: 30px;
-    right: 0;
-    transform-origin: right;
-    opacity: 0;
-    transform: translateX(100%);
-    transition: transform 200ms ease-in-out,
-                opacity 200ms ease-in-out;
-  }
+  transition: background 300ms ease-out,
+              color 300ms ease-out,
+              border-color 300ms ease-out;
   &:hover {
-    &::before {
-      transform: translateX(0);
-      opacity: 1;
-    }
+    background: rgb(28, 28, 28) !important;
     color: white !important;
+    border-color: rgb(28, 28, 28) !important;
   }
 }
 
@@ -158,7 +136,7 @@ li {
 header {
   z-index: 99;
   position: fixed;
-  background: black;
+  background: rgb(28, 28, 28);
   width: 100%;
   display: flex;
   min-height: 80px;
@@ -173,15 +151,17 @@ header {
   .burger {
     z-index: 2;
     .line1 {
+      transform-origin: center;
       transform: translateY(-200%);
       width: 25px;
-      height: 2px;
+      height: 3px;
       background: white;
     }
     .line2 {
+      transform-origin: center;
       transform: translateY(200%);
       width: 25px;
-      height: 2px;
+      height: 3px;
       background: white;
     }
   }
@@ -199,6 +179,8 @@ header {
     display: none;
     flex-direction: column;
     justify-content: center;
+    opacity: 0;
+    transition: opacity 200ms ease-out;
     a.small {
       font-weight: lighter;
       color: white;
@@ -206,39 +188,11 @@ header {
       display: block;
       text-align: left;
       margin-left: 10%;
-      // opacity: 0;
-    }
-  }
-  nav.open {
-    display: flex;
-    /*
-    a.small {
-      animation: fadeIn 500ms ease-out forwards;
-      &:nth-child(1) {
-        animation-delay: 0;
-      }
-      &:nth-child(2) {
-        animation-delay: 100ms;
-      }
-      &:nth-child(3) {
-        animation-delay: 200ms;
-      }
-      &:nth-child(4) {
-        animation-delay: 300ms;
-      }
-      &:nth-child(5) {
-        animation-delay: 400ms;
+      overflow: hidden;
+      div {
+        transform: translateY(100%);
       }
     }
-    */
-  }
-}
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
   }
 }
 
@@ -280,7 +234,7 @@ main {
       max-width: 600px;
     }
     & > img {
-      filter: drop-shadow(15px 15px 10px #c1c1c1);
+      filter: drop-shadow(15px 15px 10px rgba(0, 0, 0, 0.2));
     }
   }
   section:nth-child(even) {
@@ -350,12 +304,17 @@ footer {
       background: none;
       flex-direction: row;
       justify-content: flex-end;
+      opacity: 1 !important;
       width: auto;
       a.small {
+        z-index: 99;
         font-size: 16px;
-        display: inline-block;
+        display: inline-block !important;
         margin-left: 20px;
         opacity: 1;
+        div {
+          transform: translateY(0) !important;
+        }
       }
     }
   }
