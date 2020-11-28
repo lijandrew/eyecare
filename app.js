@@ -142,13 +142,45 @@ function setupHome() {
   });
 }
 
+function setupFrames() {
+  let hoverboxArr = Array.from(document.querySelectorAll(".hoverbox"));
+  for (let i = 0; i < hoverboxArr.length; i++) {
+    let hoverbox = hoverboxArr[i];
+    hoverbox.addEventListener("mousemove", e => {
+      let cx = hoverbox.offsetLeft + hoverbox.offsetWidth / 2;
+      let cy = hoverbox.offsetTop + hoverbox.offsetHeight / 2;
+      let dx = e.clientX - cx;
+      let dy = e.clientY - cy;
+      let rotyaxis = 20 * dx / hoverbox.offsetWidth;
+      let rotxaxis = 20 * dy / hoverbox.offsetWidth;
+      hoverbox.style.transform = `perspective(1000px)
+                                  scale(1.1)
+                                  rotateX(${rotxaxis}deg)
+                                  rotateY(${rotyaxis}deg)
+                                  `;
+    });
+    hoverbox.addEventListener("mouseleave", e => {
+      hoverbox.style.transform = `perspective(1000px)
+                                  scale(1)
+                                  rotateX(0)
+                                  rotateY(0)`;
+    });
+  }
+}
+
 function main() {
   window.onload = () => {
     setupMobileNav();
     let pathArr = window.location.pathname.split("/");
     let page = pathArr[pathArr.length - 1];
-    if (page === "" || page === "index.html") {
-      setupHome();
+    switch (page) {
+      case "":
+      case "index.html":
+        setupHome();
+        break;
+      case "frames.html":
+        setupFrames();
+        break;
     }
     body.style.opacity = 1;
   };

@@ -14,8 +14,17 @@ main section .content .view-content img {
   max-width: 300px;
   transition: transform 300ms ease-out;
 }
-main section .content .view-content img:hover {
-  transform: scale(1.05);
+main section .content .view-content .hoverbox {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: perspective(1000px);
+  transition: transform 100ms;
+}
+main section .content .view-content .hoverbox:nth-child(2), main section .content .view-content .hoverbox:nth-child(7) {
+  background: black;
+  border: 1px solid white;
 }
 
 @media screen and (min-width: 768px) {

@@ -12,9 +12,18 @@ main section {
       img {
         max-width: 300px;
         transition: transform 300ms ease-out;
-        &:hover {
-          transform: scale(1.05);
-        }
+      }
+      .hoverbox {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: perspective(1000px);
+        transition: transform 100ms;
+      }
+      .hoverbox:nth-child(2), .hoverbox:nth-child(7) {
+        background: black;
+        border: 1px solid white;
       }
     }
   }
