@@ -12,13 +12,13 @@ main section .content .view-content {
 }
 main section .content .view-content img {
   max-width: 300px;
-  transition: transform 300ms ease-out;
 }
 main section .content .view-content .hoverbox {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  border: 1px solid black;
   transform: perspective(1000px);
   transition: transform 100ms;
 }

@@ -50,11 +50,11 @@ function setupHome() {
     });
   }
 
-  // Home GSAP animations
+  // Intro animations
   let viewAniDur = 0.6;
   gsap.from("section#home .content .view-content", {
     opacity: 0,
-    transform: "translateY(20px)",
+    transform: "translateY(10px)",
     duration: viewAniDur,
     ease: "power1.inOut",
     scrollTrigger: {
@@ -63,7 +63,7 @@ function setupHome() {
   });
   gsap.from("section#about .view-content", {
     opacity: 0,
-    transform: "translateY(20px)",
+    transform: "translateY(10px)",
     duration: viewAniDur,
     ease: "power1.inOut",
     scrollTrigger: {
@@ -72,7 +72,7 @@ function setupHome() {
   });
   gsap.from("section#services .view-content", {
     opacity: 0,
-    transform: "translateY(20px)",
+    transform: "translateY(10px)",
     duration: viewAniDur,
     ease: "power1.inOut",
     scrollTrigger: {
@@ -81,7 +81,7 @@ function setupHome() {
   });
   gsap.from("section#insurance .content .insurance-list-entry", {
     opacity: 0,
-    transform: "translateY(20px)",
+    transform: "translateY(10px)",
     duration: viewAniDur,
     ease: "power1.inOut",
     stagger: {
@@ -94,7 +94,7 @@ function setupHome() {
   });
   gsap.from("section#frames .view-content", {
     opacity: 0,
-    transform: "translateY(20px)",
+    transform: "translateY(10px)",
     duration: viewAniDur,
     ease: "power1.inOut",
     scrollTrigger: {
@@ -103,7 +103,7 @@ function setupHome() {
   });
   gsap.from("section#contactlenses .view-content", {
     opacity: 0,
-    transform: "translateY(20px)",
+    transform: "translateY(10px)",
     duration: viewAniDur,
     ease: "power1.inOut",
     scrollTrigger: {
@@ -112,7 +112,7 @@ function setupHome() {
   });
   gsap.from("section#orthok .view-content", {
     opacity: 0,
-    transform: "translateY(20px)",
+    transform: "translateY(10px)",
     duration: viewAniDur,
     ease: "power1.inOut",
     scrollTrigger: {
@@ -121,7 +121,7 @@ function setupHome() {
   });
   gsap.from("section#directions .view-content", {
     opacity: 0,
-    transform: "translateY(20px)",
+    transform: "translateY(10px)",
     duration: viewAniDur,
     ease: "power1.inOut",
     scrollTrigger: {
@@ -143,21 +143,37 @@ function setupHome() {
 }
 
 function setupFrames() {
+  // Intro
+  gsap.from(".hoverbox", {
+    opacity: 0,
+    transform: "perspective(1000px) translateZ(-50px)",
+    duration: 0.8,
+    ease: "power2.out",
+    stagger: {
+      amount: 0.5,
+    },
+  });
+
+  // Parallax hover effect
   let hoverboxArr = Array.from(document.querySelectorAll(".hoverbox"));
   for (let i = 0; i < hoverboxArr.length; i++) {
     let hoverbox = hoverboxArr[i];
+    let img = hoverbox.querySelector("img");
     hoverbox.addEventListener("mousemove", e => {
+      if (window.innerWidth < 820) {
+        // Prevent parallax effect in mobile view.
+        return;
+      }
       let cx = hoverbox.offsetLeft + hoverbox.offsetWidth / 2;
       let cy = hoverbox.offsetTop + hoverbox.offsetHeight / 2;
       let dx = e.clientX - cx;
       let dy = e.clientY - cy;
-      let rotyaxis = 20 * dx / hoverbox.offsetWidth;
-      let rotxaxis = 20 * dy / hoverbox.offsetWidth;
+      let rotyaxis = 10 * dx / hoverbox.offsetHeight;
+      let rotxaxis = -5 * dy / hoverbox.offsetWidth;
       hoverbox.style.transform = `perspective(1000px)
-                                  scale(1.1)
+                                  scale(1.05)
                                   rotateX(${rotxaxis}deg)
-                                  rotateY(${rotyaxis}deg)
-                                  `;
+                                  rotateY(${rotyaxis}deg)`;
     });
     hoverbox.addEventListener("mouseleave", e => {
       hoverbox.style.transform = `perspective(1000px)
@@ -167,6 +183,7 @@ function setupFrames() {
     });
   }
 }
+
 
 function main() {
   window.onload = () => {
