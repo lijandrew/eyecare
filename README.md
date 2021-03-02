@@ -1,3 +1,3 @@
 # eyecare
 
-Development work for Mrs. Bell's clinic.
+Development work for Dr. Bell's clinic.
